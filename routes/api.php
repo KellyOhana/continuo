@@ -35,3 +35,10 @@ Route::get('/game/{game}', [GameController::class, 'show']);
 Route::put('/game/{game}', [GameController::class, 'update']);
 Route::delete('/game/{game}', [GameController::class, 'destroy']);
 
+Route::get('/developers', [DeveloperController::class, 'index'])->name('developers.index');
+Route::post('/developers', [DeveloperController::class, 'store'])->name('developers.store');
+Route::get('/developer/{developer}', [DeveloperController::class, 'show'])->name('developers.show');
+Route::put('/developer/{developer}', [DeveloperController::class, 'update'])->name('developers.update');
+Route::delete('/developer/{developer}', [DeveloperController::class, 'destroy'])->name('developers.destroy');
+
+
