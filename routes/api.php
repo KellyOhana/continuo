@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\GameController;
+
 use App\Http\Controllers\PublisherController;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
@@ -24,3 +27,11 @@ Route::post('/publishers', [PublisherController::class, 'store'])->name('publish
 Route::get('/publisher/{publisher}', [PublisherController::class, 'show'])->name('publishers.show');
 Route::put('/publisher/{publisher}', [PublisherController::class, 'update'])->name('publishers.update');
 Route::delete('/publisher/{publisher}', [PublisherController::class, 'destroy'])->name('publishers.destroy');
+
+
+Route::get('/games', [GameController::class, 'index']); //GET http://127.0.0.1:8000/api/games
+Route::post('/games', [GameController::class, 'store']); 
+Route::get('/game/{game}', [GameController::class, 'show']);
+Route::put('/game/{game}', [GameController::class, 'update']);
+Route::delete('/game/{game}', [GameController::class, 'destroy']);
+
