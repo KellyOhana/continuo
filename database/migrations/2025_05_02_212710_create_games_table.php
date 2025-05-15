@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('platform');
-            $table->string('genre');
+            $table->json('platform');
+            $table->json('genre');
             $table->string('status')->default('developping'); // Status of the developer's work on the game (developping, alpha, beta, gold, released)
             $table->timestamp('released_at');
             $table->unsignedBigInteger('publisher_id');

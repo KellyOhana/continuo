@@ -16,6 +16,14 @@ class Game extends Model
         'genre',
         'status',
         'released_at',
+        'publisher_id',
+        'developer_id',
+    ];
+
+    protected $casts = [
+        'platform' => 'array',
+        'genre' => 'array',
+        'released_at' => 'datetime',
     ];
 
     public function developer()

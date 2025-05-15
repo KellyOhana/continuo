@@ -25,7 +25,10 @@ class PublisherController extends Controller{
 
         $publisher = Publisher::create($validated);
 
-        return response()->json($publisher);
+        return response()->json([
+            'message' => 'Distribuidora criada com sucesso',
+            'publisher'=> $publisher
+        ]);
     }
 
     public function show($id){

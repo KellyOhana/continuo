@@ -27,18 +27,20 @@ class GameController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'platform' => 'required|string|max:100',
-            'genre' => 'required|string|max:100',
-            'status' => 'required|string|max:50',
+            'platform' => 'required|array|max:100',
+            'genre' => 'required|array|max:100',
+            'status' => 'string|max:50',
             'released_at' => 'required|date',
+            'publisher_id' => 'required|exists:App\Models\Publisher',
+            'developer_id' => 'required|exists:App\Models\Developer',
         ]);
 
         $game = Game::create($validatedData);
 
         return response()->json([
+            'message' => 'Jogo criado com sucesso',
             'game' => $game,
         ], 201);
-
     }
 
     /**
