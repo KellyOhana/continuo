@@ -39,7 +39,7 @@ class DeveloperController extends Controller{
         $developer = Developer::findOrFail($id);
 
         $validated = $request->validate([
-            'name' => 'required|string',
+            'name' => 'string',
             'about' => 'string',
         ]);
 
@@ -53,7 +53,10 @@ class DeveloperController extends Controller{
         $developer = Developer::findOrFail($id);
         $developer->delete();
 
-        return response()->json(null, 204);
+        return response()->json([
+
+            'message' => 'Recurso deletado!',
+        ]);
 
     }
 }

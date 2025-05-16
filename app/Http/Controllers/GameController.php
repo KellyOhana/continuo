@@ -59,12 +59,12 @@ class GameController extends Controller
     public function update(Request $request, Game $game)
     {
         $validatedData = $request->validate([
-            'name' => 'sometimes|required|string|max:255',
-            'description' => 'sometimes|required|string',
-            'platform' => 'sometimes|required|string|max:255',
-            'genre' => 'sometimes|required|string|max:255',
-            'status' => 'sometimes|required|string|max:255',
-            'released_at' => 'sometimes|required|date',
+            'name' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
+            'platform' => 'sometimes|string|max:255',
+            'genre' => 'sometimes|string|max:255',
+            'status' => 'sometimes|string|max:255',
+            'released_at' => 'sometimes|date',
         ]);
 
         $game->update($validatedData);

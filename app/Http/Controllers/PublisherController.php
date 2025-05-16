@@ -45,7 +45,7 @@ class PublisherController extends Controller{
         $publisher = Publisher::findOrFail($id);
 
         $validated = $request->validate([
-            'name' => 'required|string',
+            'name' => 'string',
             'about' => 'string',
         ]);
 
@@ -59,7 +59,9 @@ class PublisherController extends Controller{
         $publisher = Publisher::findOrFail($id);
         $publisher->delete();
 
-        return response()->json(null, 204);
+        return response()->json([
 
+            'message' => 'Recurso deletado!',
+        ]);
     }
 }
