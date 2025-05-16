@@ -19,6 +19,7 @@ class DeveloperController extends Controller{
         $validated = $request->validate([
             'name' => 'required|string',
             'about' => 'string',
+            'publisher_id' => 'required|exists:App\Models\Publisher,id',
         ]);
 
         $developer = Developer::create($validated);

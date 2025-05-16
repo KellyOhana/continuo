@@ -31,8 +31,8 @@ class GameController extends Controller
             'genre' => 'required|array|max:100',
             'status' => 'string|max:50',
             'released_at' => 'required|date',
-            'publisher_id' => 'required|exists:App\Models\Publisher',
-            'developer_id' => 'required|exists:App\Models\Developer',
+            'publisher_id' => 'required|exists:App\Models\Publisher,id',
+            'developer_id' => 'required|exists:App\Models\Developer,id',
         ]);
 
         $game = Game::create($validatedData);
